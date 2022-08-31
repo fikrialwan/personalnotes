@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f5f5f9;
+}
+
+button {
+  width: 100%;
+  border: none;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 7px;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  outline: none;
+}
+
+button:hover {
+  transform: scale(1.02);
+}
+
+.container-app {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.container-form-card {
+  position: sticky;
+  top: 0;
+  padding: 10px;
+}
+
+.container-form-card .form-card {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.container-form-card form {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 15px;
+  background-color: white;
+  color: #566a7f;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px 20px;
+  box-shadow: 0 2px 6px 0 rgb(67 89 113 / 12%);
+}
+
+.container-form-card h4 {
+  margin-top: 0;
+  margin-bottom: 0.6rem;
+}
+
+.container-form-card span {
+  align-self: flex-end;
+  font-size: 0.7rem;
+  margin-bottom: 0.2rem;
+}
+
+.container-form-card input {
+  width: calc(100% - 2*0.85rem);
+  padding: 0.45rem 0.85rem;
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #697a8d;
+  border: 1px solid #d9dee3;
+  border-radius: 5px;
+  transition: all 0.15s ease-in-out;
+  margin-bottom: 0.65rem;
+  outline: none;
+}
+
+.container-form-card input:focus {
+  border: 1px solid #1687A7;
+}
+
+.container-form-card textarea {
+  width: calc(100% - 2*0.85rem);
+  padding: 0.45rem 0.85rem;
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #697a8d;
+  border: 1px solid #d9dee3;
+  border-radius: 5px;
+  transition: all 0.15s ease-in-out;
+  margin-bottom: 0.65rem;
+  outline: none;
+}
+
+.container-form-card textarea:focus {
+  border: 1px solid #1687A7;
+}
+
+.container-content {
+  padding: 10px;
+  grid-column: span 2 / span 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.container-content input {
+  align-self: center;
+  padding: 0.65rem 20px;
+  width: calc(100% - 40px);
+  max-width: 500px;
+  background-color: #fff;
+  border-radius: 30px;
+  box-shadow: 0 2px 6px 0 rgb(67 89 113 / 12%);
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #566a7f;
+  outline: none;
+  border: none;
+}
+
+.container-notes {
+  padding: 10px;
+  color: #566a7f;
+}
+
+.container-notes h5 {
+  margin: 0.5rem 0 0.3rem 0;
+}
+
+.list-notes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 20px;
+}
+
+.note-card {
+  border-radius: 15px;
+  background-color: white;
+  color: #566a7f;
+  display: flex;
+  flex-direction: column;
+  padding: 15px 20px;
+  box-shadow: 0 2px 6px 0 rgb(67 89 113 / 12%);
+}
+
+.note-card span {
+  font-size: 0.7rem;
+  font-weight: 300;
+}
+
+.note-card p {
+  flex-grow: 1;
+}
+
+.note-card-action {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));;
+  gap: 10px;
+}
+
+@media only screen and (max-width: 1200px) {
+  .container-app {
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+
+  .container-form-card {
+      position: static;
+  }
+}
