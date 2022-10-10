@@ -2,10 +2,12 @@ import { createSlice } from '@reduxjs/toolkit'
 import { getInitialData } from '../../../utils'
 
 const initialState = {
-  search: '',
-  title: '',
-  note: '',
-  notes: getInitialData(),
+  value: {
+    search: '',
+    title: '',
+    note: '',
+    notes: getInitialData(),
+  }
 }
 
 export const notesSlice = createSlice({
@@ -19,8 +21,8 @@ export const notesSlice = createSlice({
           ...state.value.notes,
           {
             id: +new Date(),
-            title: this.state.title,
-            body: this.state.note,
+            title: state.value.title,
+            body: state.value.note,
             archived: false,
             createdAt: new Date().toISOString(),
           },
@@ -32,39 +34,39 @@ export const notesSlice = createSlice({
     search: (state, action) => {
       state.value = {
         ...state.value,
-        search: action.searchValue,
+        search: action.payload,
       }
     },
     changeTitle: (state, action) => {
-      if (action.titleValue.length <= 50) {
+      if (action.payload.length <= 50) {
         state.value = {
           ...state.value,
-          title: action.titleValue,
+          title: action.payload,
         }
       }
     },
     changeNotes: (state, action) => {
       state.value = {
         ...state.value,
-        note: action.noteValue,
+        note: action.payload,
       }
     },
     deleteNote: (state, action) => {
       state.value = {
         ...state.value,
-        notes: state.value.notes.filter((item) => item.id !== action.id),
+        notes: state.value.notes.filter((item) => item.id !== action.payload),
       }
     },
     toArchived: (state, action) => {
       state.value = {
         ...state.value,
-        notes: state.value.notes.map((item) => (item.id === action.id) ? { ...item, archived: true } : item)
+        notes: state.value.notes.map((item) => (item.id === action.payload) ? { ...item, archived: true } : item)
       }
     },
     toNotArchived: (state, action) => {
       state.value = {
         ...state.value,
-        notes: state.value.notes.map((item) => (item.id === action.id) ? { ...item, archived: false } : item)
+        notes: state.value.notes.map((item) => (item.id === action.payload) ? { ...item, archived: false } : item)
       }
     },
   },

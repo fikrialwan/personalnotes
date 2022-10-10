@@ -1,16 +1,17 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { deleteNote } from "../../redux/reducer/notes/notesSlice";
 import { showFormattedDate } from "../../utils";
 import NoteCardAction from "./NoteCardAction";
 
-function NoteCard({ id, title, body, archived, createdAt, handleDeleteNote, handleArchived }) {
-    // const months = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
-    // let date = new Date(createdAt)
+function NoteCard({ id, title, body, archived, createdAt, handleArchived }) {
+    const dispatch = useDispatch();
+
     return <div className="note-card">
         <h5>{title}</h5>
-        {/* <span>{`${date.getDay()} ${months[date.getMonth()]} ${date.getFullYear()}`}</span> */}
         <span>{showFormattedDate(createdAt)}</span>
         <p>{body}</p>
-        <NoteCardAction archived={archived} handleDeleteNote={() => handleDeleteNote(id)} handleArchived={() => handleArchived(id)} />
+        <NoteCardAction archived={archived} handleDeleteNote={() => dispatch(deleteNote(id))} handleArchived={() => handleArchived(id)} />
     </div>
 }
 
