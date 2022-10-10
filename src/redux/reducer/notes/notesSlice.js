@@ -1,12 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { getInitialData } from '../../../utils'
+import { loadData, saveData } from '../../../utils/local-storage'
 
 const initialState = {
   value: {
     search: '',
     title: '',
     note: '',
-    notes: getInitialData(),
+    notes: loadData() ?? getInitialData(),
   }
 }
 
@@ -30,6 +31,8 @@ export const notesSlice = createSlice({
         title: '',
         note: '',
       }
+
+      saveData(state.value.notes);
     },
     search: (state, action) => {
       state.value = {
@@ -56,18 +59,24 @@ export const notesSlice = createSlice({
         ...state.value,
         notes: state.value.notes.filter((item) => item.id !== action.payload),
       }
+
+      saveData(state.value.notes);
     },
     toArchived: (state, action) => {
       state.value = {
         ...state.value,
         notes: state.value.notes.map((item) => (item.id === action.payload) ? { ...item, archived: true } : item)
       }
+
+      saveData(state.value.notes);
     },
     toNotArchived: (state, action) => {
       state.value = {
         ...state.value,
         notes: state.value.notes.map((item) => (item.id === action.payload) ? { ...item, archived: false } : item)
       }
+
+      saveData(state.value.notes);
     },
   },
 })
