@@ -1,6 +1,6 @@
 # Personal Notes
 
-Personal Notes is a website that is used to write your notes. The purpose I build this website is to learn React State Management using React Redux Toolkit.
+Personal Notes is a website that is used to write your notes. The purpose I build this website is to learn React State Management using React Redux Toolkit. Data on this website will be saved in local storage.
 
 Live preview: https://personalnotes.fikrialwan.com/
 
@@ -34,3 +34,4 @@ npm run start
 - Delete note
 - Archive note
 - Move notes from the archive to active notes
+- Save and load data from local storage
