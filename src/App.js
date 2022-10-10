@@ -1,6 +1,6 @@
 import React from "react";
-import Content from "./Content";
-import FormCard from "./FormCard";
+import Content from "./component/content/Content";
+import FormCard from "./component/form/FormCard";
 import { getInitialData } from "./utils";
 
 class App extends React.Component {

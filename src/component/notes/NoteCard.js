@@ -1,6 +1,6 @@
 import React from "react";
+import { showFormattedDate } from "../../utils";
 import NoteCardAction from "./NoteCardAction";
-import { showFormattedDate } from "./utils";
 
 function NoteCard({ id, title, body, archived, createdAt, handleDeleteNote, handleArchived }) {
     // const months = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
